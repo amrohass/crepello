@@ -7,7 +7,7 @@
 <title>Crepello — Fine Dining Experience</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
 </head>
 <body>
@@ -37,12 +37,12 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mob-logo"><img src="IMG_0780.PNG" alt="Crepello"/></div>
-  <a href="#home" onclick="closeMobile()">Home</a>
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#branches" onclick="closeMobile()">Branches</a>
-  <a href="#menu" onclick="closeMobile()">Menu</a>
-  <a href="#booking" onclick="closeMobile()">Reserve</a>
-  <a href="#findus" onclick="closeMobile()">Find Us</a>
+  <a href="#home" onclick="closeMobile()" data-i18n="nav_about">About</a>
+  <a href="#branches" onclick="closeMobile()" data-i18n="nav_branches">Branches</a>
+  <a href="#menu" onclick="closeMobile()" data-i18n="nav_menu">Menu</a>
+  <a href="#booking" onclick="closeMobile()" data-i18n="nav_reserve">Reserve</a>
+  <a href="#findus" onclick="closeMobile()" data-i18n="nav_findus">Find Us</a>
+  <button class="lang-btn" style="margin-top:12px;width:100%" onclick="setLang(currentLang==='en'?'ar':'en')">عربي</button>
 </div>
 
 <!-- NAV -->
@@ -51,13 +51,14 @@
     <img src="Logo.png" alt="Crepello">
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#branches">Branches</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#booking">Reserve</a></li>
-    <li><a href="#findus">Find Us</a></li>
+    <li><a href="#about" data-i18n="nav_about">About</a></li>
+    <li><a href="#branches" data-i18n="nav_branches">Branches</a></li>
+    <li><a href="#menu" data-i18n="nav_menu">Menu</a></li>
+    <li><a href="#booking" data-i18n="nav_reserve">Reserve</a></li>
+    <li><a href="#findus" data-i18n="nav_findus">Find Us</a></li>
   </ul>
-  <a href="#booking" class="nav-cta">Book a Table</a>
+  <button class="lang-btn" onclick="setLang(currentLang==='en'?'ar':'en')">عربي</button>
+  <a href="#booking" class="nav-cta" data-i18n="nav_book">Book a Table</a>
   <div class="hamburger" onclick="toggleMobile()" id="hamburgerBtn">
     <span></span><span></span><span></span>
   </div>
@@ -82,8 +83,8 @@
     <h1 class="hero-title" id="heroTitle">Where Every Bite<br>Tells a <em>Story</em></h1>
     <p class="hero-sub" id="heroSub">A culinary journey through bold flavors, crafted with passion and served with elegance — from the heart of Palestine to the world.</p>
     <div class="hero-btns">
-      <a href="#menu" class="btn-primary">Explore Our Menu</a>
-      <a href="#booking" class="btn-outline">Reserve a Table</a>
+      <a href="#menu" class="btn-primary" data-i18n="hero_explore">Explore Our Menu</a>
+      <a href="#booking" class="btn-outline" data-i18n="hero_reserve">Reserve a Table</a>
     </div>
   </div>
   <div class="hero-dots">
@@ -93,7 +94,7 @@
     <div class="hero-dot"></div>
     <div class="hero-dot"></div>
   </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  <div class="hero-scroll"><span data-i18n="hero_scroll">Scroll</span><div class="scroll-line"></div></div>
 </section>
 
 <!-- ABOUT -->
@@ -109,7 +110,7 @@
       </div>
     </div>
     <div class="fi fi-delay-1">
-      <span class="section-tag">Our Story</span>
+      <span class="section-tag" data-i18n="about_tag">Our Story</span>
       <h2 class="section-title" id="aboutTitle">Born from Passion,<br>Built on <em>Flavor</em></h2>
       <div class="divider"></div>
       <p class="section-sub" style="max-width:100%;margin-bottom:16px" id="aboutP1">
@@ -131,10 +132,10 @@
 <!-- GALLERY -->
 <section id="gallery" style="padding:80px 0">
   <div class="gallery-header fi">
-    <span class="section-tag" style="text-align:center;display:block">Visual Experience</span>
-    <h2 class="section-title" style="text-align:center">A Feast for the <em>Eyes</em></h2>
+    <span class="section-tag" style="text-align:center;display:block" data-i18n="gallery_tag">Visual Experience</span>
+    <h2 class="section-title" style="text-align:center" data-i18n-html="gallery_title">A Feast for the <em>Eyes</em></h2>
     <div class="divider" style="margin-inline:auto"></div>
-    <p class="section-sub" style="text-align:center;margin-inline:auto">Every dish, every corner — crafted to be as beautiful as it is delicious. Click any image to view full screen.</p>
+    <p class="section-sub" style="text-align:center;margin-inline:auto" data-i18n="gallery_sub">Every dish, every corner — crafted to be as beautiful as it is delicious. Click any image to view full screen.</p>
   </div>
   <div class="gallery-grid" id="galleryGrid"></div>
 </section>
@@ -144,8 +145,8 @@
   <div class="branches-inner">
     <div class="branches-header fi">
       <div>
-        <span class="section-tag">Our Locations</span>
-        <h2 class="section-title">Find Us <em>Everywhere</em></h2>
+        <span class="section-tag" data-i18n="branches_tag">Our Locations</span>
+        <h2 class="section-title" data-i18n-html="branches_title">Find Us <em>Everywhere</em></h2>
       </div>
     </div>
     <div class="branches-grid" id="branchesGrid"></div>
@@ -156,15 +157,17 @@
 <section id="menu">
   <div class="menu-inner">
     <div class="fi" style="margin-bottom:44px">
-      <span class="section-tag">What We Serve</span>
-      <h2 class="section-title">Our <em>Menu</em></h2>
+      <span class="section-tag" data-i18n="menu_tag">What We Serve</span>
+      <h2 class="section-title" data-i18n-html="menu_title">Our <em>Menu</em></h2>
       <div class="divider"></div>
-      <p class="section-sub">From hearty mains and indulgent sweets to refreshing drinks and premium hookah — explore our full selection.</p>
+      <p class="section-sub" data-i18n="menu_sub">From hearty mains and indulgent sweets to refreshing drinks and premium hookah — explore our full selection.</p>
     </div>
-    <input class="menu-search" placeholder="🔍 Search menu items…" oninput="handleMenuSearch(event)" onfocus="this.value&&handleMenuSearch({target:this})"/>
+    <input class="menu-search" placeholder="🔍 Search menu items…" data-i18n-ph="menu_search_ph" oninput="handleMenuSearch(event)" onfocus="this.value&&handleMenuSearch({target:this})"/>
     <div class="menu-cats" id="menuCats"></div>
-    <div class="menu-subs" id="menuSubs"></div>
-    <div id="menuPanels"></div>
+    <div class="menu-layout" id="menuLayout">
+      <div class="menu-subs" id="menuSubs"></div>
+      <div class="menu-content" id="menuPanels"></div>
+    </div>
   </div>
 </section>
 
@@ -172,34 +175,34 @@
 <section id="testimonials">
   <div class="testi-inner">
     <div class="fi">
-      <span class="section-tag">What Guests Say</span>
-      <h2 class="section-title">Loved by <em>Everyone</em></h2>
+      <span class="section-tag" data-i18n="testi_tag">What Guests Say</span>
+      <h2 class="section-title" data-i18n-html="testi_title">Loved by <em>Everyone</em></h2>
       <div class="divider" style="margin-inline:auto"></div>
-      <p class="section-sub" style="margin-inline:auto">Real experiences from guests who've visited our branches across Palestine and beyond.</p>
+      <p class="section-sub" style="margin-inline:auto" data-i18n="testi_sub">Real experiences from guests who've visited our branches across Palestine and beyond.</p>
     </div>
     <div class="testi-grid">
       <div class="testi-card fi">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"The Beef Stroganoff is something I think about constantly. The cream sauce is perfect — rich, balanced, and utterly satisfying. Crepello has become my family's go-to restaurant."</div>
+        <div class="testi-quote" data-i18n="testi1_quote">"The Beef Stroganoff is something I think about constantly. The cream sauce is perfect — rich, balanced, and utterly satisfying. Crepello has become my family's go-to restaurant."</div>
         <div class="testi-author">
           <div class="testi-avatar">S</div>
-          <div><div class="testi-name">Sara Al-Khalidi</div><div class="testi-loc">Nablus, Palestine</div></div>
+          <div><div class="testi-name" data-i18n="testi1_name">Sara Al-Khalidi</div><div class="testi-loc" data-i18n="testi1_loc">Nablus, Palestine</div></div>
         </div>
       </div>
       <div class="testi-card fi fi-delay-1">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"The atmosphere is incredible — warm, sophisticated, and welcoming. The Chicken Scallop with melted mozzarella is a work of art. Five stars without hesitation."</div>
+        <div class="testi-quote" data-i18n="testi2_quote">"The atmosphere is incredible — warm, sophisticated, and welcoming. The Chicken Scallop with melted mozzarella is a work of art. Five stars without hesitation."</div>
         <div class="testi-author">
           <div class="testi-avatar">A</div>
-          <div><div class="testi-name">Ahmad Barakat</div><div class="testi-loc">Ramallah, Palestine</div></div>
+          <div><div class="testi-name" data-i18n="testi2_name">Ahmad Barakat</div><div class="testi-loc" data-i18n="testi2_loc">Ramallah, Palestine</div></div>
         </div>
       </div>
       <div class="testi-card fi fi-delay-2">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"Crepello brought something truly different to Ramallah. The Chocolate Kunafa is divine — crispy outside, creamy inside, and that Nutella drizzle is perfection. Must-visit."</div>
+        <div class="testi-quote" data-i18n="testi3_quote">"Crepello brought something truly different to Ramallah. The Chocolate Kunafa is divine — crispy outside, creamy inside, and that Nutella drizzle is perfection. Must-visit."</div>
         <div class="testi-author">
           <div class="testi-avatar">L</div>
-          <div><div class="testi-name">Lana Mansour</div><div class="testi-loc">Jerusalem, Palestine</div></div>
+          <div><div class="testi-name" data-i18n="testi3_name">Lana Mansour</div><div class="testi-loc" data-i18n="testi3_loc">Jerusalem, Palestine</div></div>
         </div>
       </div>
     </div>
@@ -210,42 +213,42 @@
 <section id="booking">
   <div class="booking-inner">
     <div class="fi">
-      <span class="section-tag">Reservations</span>
-      <h2 class="section-title">Reserve Your <em>Table</em></h2>
+      <span class="section-tag" data-i18n="book_tag">Reservations</span>
+      <h2 class="section-title" data-i18n-html="book_title">Reserve Your <em>Table</em></h2>
       <div class="divider"></div>
-      <p class="section-sub">Secure your spot and let us prepare an unforgettable dining experience for you and your guests.</p>
+      <p class="section-sub" data-i18n="book_sub">Secure your spot and let us prepare an unforgettable dining experience for you and your guests.</p>
       <div class="booking-hours">
-        <div class="hours-title">Opening Hours</div>
+        <div class="hours-title" data-i18n="book_hours">Opening Hours</div>
         <div class="hours-list" id="hoursList"></div>
       </div>
     </div>
     <div class="fi fi-delay-1">
       <div class="booking-form">
-        <h3 class="form-title">Book a Table</h3>
-        <p class="form-sub">All fields are required. We'll confirm your reservation within 2 hours.</p>
+        <h3 class="form-title" data-i18n="book_form_title">Book a Table</h3>
+        <p class="form-sub" data-i18n="book_form_sub">All fields are required. We'll confirm your reservation within 2 hours.</p>
         <div id="bookingFormInner">
           <div class="form-group">
-            <label class="form-label">Full Name *</label>
-            <input class="form-input" id="fName" placeholder="Your full name" type="text"/>
-            <div class="form-err" id="fNameErr">Please enter your full name.</div>
+            <label class="form-label" data-i18n="book_name_lbl">Full Name *</label>
+            <input class="form-input" id="fName" placeholder="Your full name" data-i18n-ph="book_name_ph" type="text"/>
+            <div class="form-err" id="fNameErr" data-i18n="book_name_err">Please enter your full name.</div>
           </div>
           <div class="form-group">
-            <label class="form-label">Phone Number *</label>
-            <input class="form-input" id="fPhone" placeholder="+970 5XX XXX XXX" type="tel"/>
-            <div class="form-err" id="fPhoneErr">Please enter a valid phone number.</div>
+            <label class="form-label" data-i18n="book_phone_lbl">Phone Number *</label>
+            <input class="form-input" id="fPhone" placeholder="+970 5XX XXX XXX" data-i18n-ph="book_phone_ph" type="tel"/>
+            <div class="form-err" id="fPhoneErr" data-i18n="book_phone_err">Please enter a valid phone number.</div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">Day *</label>
+              <label class="form-label" data-i18n="book_day_lbl">Day *</label>
               <select class="form-select" id="fDay">
                 <option value="">Select Day</option>
-                <option>Saturday</option><option>Sunday</option><option>Monday</option>
-                <option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option>
+                <option value="Saturday">Saturday</option><option value="Sunday">Sunday</option><option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option><option value="Wednesday">Wednesday</option><option value="Thursday">Thursday</option><option value="Friday">Friday</option>
               </select>
-              <div class="form-err" id="fDayErr">Please select a day.</div>
+              <div class="form-err" id="fDayErr" data-i18n="book_day_err">Please select a day.</div>
             </div>
             <div class="form-group">
-              <label class="form-label">Time *</label>
+              <label class="form-label" data-i18n="book_time_lbl">Time *</label>
               <select class="form-select" id="fTime">
                 <option value="">Select Time</option>
                 <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
@@ -254,25 +257,25 @@
                 <option>7:00 PM</option><option>8:00 PM</option><option>9:00 PM</option>
                 <option>10:00 PM</option><option>11:00 PM</option>
               </select>
-              <div class="form-err" id="fTimeErr">Please select a time.</div>
+              <div class="form-err" id="fTimeErr" data-i18n="book_time_err">Please select a time.</div>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Number of Guests *</label>
+            <label class="form-label" data-i18n="book_guests_lbl">Number of Guests *</label>
             <select class="form-select" id="fGuests">
               <option value="">Select number of guests</option>
-              <option>1 Person</option><option>2 People</option><option>3 People</option>
-              <option>4 People</option><option>5 People</option><option>6 People</option>
-              <option>7–10 People</option><option>10+ People (Group)</option>
+              <option value="1 Person">1 Person</option><option value="2 People">2 People</option><option value="3 People">3 People</option>
+              <option value="4 People">4 People</option><option value="5 People">5 People</option><option value="6 People">6 People</option>
+              <option value="7-10 People">7–10 People</option><option value="10+ People">10+ People (Group)</option>
             </select>
-            <div class="form-err" id="fGuestsErr">Please select number of guests.</div>
+            <div class="form-err" id="fGuestsErr" data-i18n="book_guests_err">Please select number of guests.</div>
           </div>
-          <button class="form-submit" onclick="submitBooking()">Confirm Reservation</button>
+          <button class="form-submit" onclick="submitBooking()" data-i18n="book_submit">Confirm Reservation</button>
         </div>
         <div class="form-success" id="bookingSuccess">
           <div class="success-icon">✦</div>
-          <h3>Reservation Received!</h3>
-          <p>Thank you! We've received your booking request and will confirm within 2 hours. We look forward to welcoming you to Crepello.</p>
+          <h3 data-i18n="book_success_title">Reservation Received!</h3>
+          <p data-i18n="book_success_msg">Thank you! We've received your booking request and will confirm within 2 hours. We look forward to welcoming you to Crepello.</p>
         </div>
       </div>
     </div>
@@ -283,14 +286,14 @@
 <section id="findus">
   <div class="findus-inner">
     <div class="fi">
-      <span class="section-tag">Get in Touch</span>
-      <h2 class="section-title">Find <em>Us</em></h2>
+      <span class="section-tag" data-i18n="findus_tag">Get in Touch</span>
+      <h2 class="section-title" data-i18n-html="findus_title">Find <em>Us</em></h2>
       <div class="divider"></div>
-      <p class="section-sub">Visit any of our locations or reach out through the channels below — we'd love to hear from you.</p>
+      <p class="section-sub" data-i18n="findus_sub">Visit any of our locations or reach out through the channels below — we'd love to hear from you.</p>
       <div class="findus-locs" id="findusLocs"></div>
       <div class="findus-contacts" id="findusContacts"></div>
       <div class="social-wrap">
-        <div class="social-title">Follow Us</div>
+        <div class="social-title" data-i18n="findus_follow">Follow Us</div>
         <div class="social-links" id="findusSocial"></div>
       </div>
     </div>
@@ -311,9 +314,9 @@
     <img src="Logo.png" alt="Crepello">
   </a>
     <div class="footer-center">
-      <div class="footer-copy">© <span id="footerYear"></span> Crepello™ — All rights reserved.</div>
-      <div class="footer-tm">Crepello is a registered trademark. Unauthorized use is prohibited.</div>
-      <div class="footer-dev">Crafted by <a href="https://hktechnologie.com/" target="_blank">HK Technologies</a></div>
+      <div class="footer-copy" id="footerCopy"></div>
+      <div class="footer-tm" data-i18n="footer_tm">Crepello is a registered trademark. Unauthorized use is prohibited.</div>
+      <div class="footer-dev" id="footerDev">Crafted by <a href="https://hktechnologie.com/" target="_blank">HK Technologies</a></div>
     </div>
     <div class="footer-socials" id="footerSocial"></div>
   </div>
@@ -323,69 +326,77 @@
 <div id="adminOverlay">
   <div class="al-wrap" id="adminLoginWrap">
     <div class="al-box">
-      <div class="al-title">⚙ Crepello CMS</div>
-      <div class="al-sub">Content Management System<br>Authorized Personnel Only</div>
-      <input class="al-input" id="alEmail" type="email" placeholder="Admin email" style="margin-bottom:10px"/>
-      <input class="al-input" id="alInput" type="password" placeholder="Password"/>
-      <button class="al-btn" onclick="doAdminLogin()">Access Dashboard</button>
-      <div class="al-err" id="alErr">Incorrect credentials. Please try again.</div>
-      <div class="al-hint">Press Ctrl + Shift + A to open · Esc to close</div>
+      <div class="al-title" data-i18n="admin_cms_title">⚙ Crepello CMS</div>
+      <div class="al-sub" data-i18n-html="admin_cms_sub">Content Management System<br>Authorized Personnel Only</div>
+      <input class="al-input" id="alEmail" type="email" placeholder="Admin email" data-i18n-ph="admin_email_ph" style="margin-bottom:10px"/>
+      <input class="al-input" id="alInput" type="password" placeholder="Password" data-i18n-ph="admin_pass_ph"/>
+      <button class="al-btn" onclick="doAdminLogin()" data-i18n="admin_login_btn">Access Dashboard</button>
+      <div class="al-err" id="alErr" data-i18n="admin_login_err">Incorrect credentials. Please try again.</div>
+      <div class="al-hint" data-i18n="admin_hint">Press Ctrl + Shift + A to open · Esc to close</div>
+      <button class="lang-btn" style="margin-top:14px;width:100%" onclick="setLang(currentLang==='en'?'ar':'en')">عربي</button>
     </div>
   </div>
   <div class="am-wrap" id="adminMain">
     <div class="am-header">
-      <h1>⚙ Crepello CMS Dashboard</h1>
+      <h1 data-i18n="admin_dash_title">⚙ Crepello CMS Dashboard</h1>
       <div style="display:flex;gap:10px;align-items:center">
-        <button onclick="doAdminLogout()" style="background:rgba(200,60,60,.15);border:1px solid rgba(200,60,60,.3);color:#e07070;padding:5px 14px;border-radius:3px;font-family:inherit;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer">Logout</button>
-        <span class="am-close" onclick="closeAdmin()">✕ Close</span>
+        <button class="lang-btn" onclick="setLang(currentLang==='en'?'ar':'en')">عربي</button>
+        <button onclick="doAdminLogout()" data-i18n="admin_logout" style="background:rgba(200,60,60,.15);border:1px solid rgba(200,60,60,.3);color:#e07070;padding:5px 14px;border-radius:3px;font-family:inherit;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer">Logout</button>
+        <span class="am-close" onclick="closeAdmin()" data-i18n="admin_close">✕ Close</span>
       </div>
-    </div>
+    </div>  
     <div class="am-body">
       <div class="am-sidebar">
-        <div class="am-nav active" data-page="bookings" onclick="showAdminPage('bookings')">📋 Bookings</div>
-        <div class="am-nav" data-page="menu" onclick="showAdminPage('menu')">🍽 Menu Items</div>
-        <div class="am-nav" data-page="branches" onclick="showAdminPage('branches')">📍 Branches</div>
-        <div class="am-nav" data-page="hours" onclick="showAdminPage('hours')">🕐 Hours</div>
-        <div class="am-nav" data-page="contact" onclick="showAdminPage('contact')">📞 Contact</div>
-        <div class="am-nav" data-page="hero" onclick="showAdminPage('hero')">🖼 Hero Text</div>
-        <div class="am-nav" data-page="images" onclick="showAdminPage('images')">📁 Images</div>
+        <div class="am-nav active" data-page="bookings" data-i18n="admin_nav_bookings" onclick="showAdminPage('bookings')">📋 Bookings</div>
+        <div class="am-nav" data-page="menu" data-i18n="admin_nav_menu" onclick="showAdminPage('menu')">🍽 Menu Items</div>
+        <div class="am-nav" data-page="categories" data-i18n="admin_nav_cats" onclick="showAdminPage('categories')">🗂 Categories</div>
+        <div class="am-nav" data-page="branches" data-i18n="admin_nav_branches" onclick="showAdminPage('branches')">📍 Branches</div>
+        <div class="am-nav" data-page="hours" data-i18n="admin_nav_hours" onclick="showAdminPage('hours')">🕐 Hours</div>
+        <div class="am-nav" data-page="contact" data-i18n="admin_nav_contact" onclick="showAdminPage('contact')">📞 Contact</div>
+        <div class="am-nav" data-page="hero" data-i18n="admin_nav_hero" onclick="showAdminPage('hero')">🖼 Hero Text</div>
+        <div class="am-nav" data-page="images" data-i18n="admin_nav_images" onclick="showAdminPage('images')">📁 Images</div>
       </div>
       <div class="am-content">
         <div class="ap active" id="ap-bookings">
-          <div class="ap-title">Reservations</div>
-          <div class="ap-sub">All booking requests submitted via the website. Confirm, cancel, or delete entries.</div>
+          <div class="ap-title" data-i18n="ap_bookings_title">Reservations</div>
+          <div class="ap-sub" data-i18n="ap_bookings_sub">All booking requests submitted via the website. Confirm, cancel, or delete entries.</div>
           <div id="ap-bookings-body"></div>
         </div>
         <div class="ap" id="ap-menu">
-          <div class="ap-title">Menu Items</div>
-          <div class="ap-sub">Edit name, category, description, price and image. Changes update the live site instantly.</div>
-          <button class="add-btn" onclick="addMenuItem()">+ Add New Item</button>
+          <div class="ap-title" data-i18n="ap_menu_title">Menu Items</div>
+          <div class="ap-sub" data-i18n="ap_menu_sub">Edit name, category, description, price and image. Changes update the live site instantly.</div>
+          <button class="add-btn" data-i18n="btn_add_item" onclick="addMenuItem()">+ Add New Item</button>
           <div id="ap-menu-body"></div>
         </div>
+        <div class="ap" id="ap-categories">
+          <div class="ap-title" data-i18n="ap_cats_title">Categories &amp; Subcategories</div>
+          <div class="ap-sub" data-i18n="ap_cats_sub">Manage menu categories and their subcategories. New categories and subcategories appear in the menu item editor.</div>
+          <div id="ap-categories-body"></div>
+        </div>
         <div class="ap" id="ap-branches">
-          <div class="ap-title">Branches</div>
-          <div class="ap-sub">Manage all branch locations. Changes reflect on the Branches and Find Us sections.</div>
-          <button class="add-btn" onclick="addBranch()">+ Add Branch</button>
+          <div class="ap-title" data-i18n="ap_branches_title">Branches</div>
+          <div class="ap-sub" data-i18n="ap_branches_sub">Manage all branch locations. Changes reflect on the Branches and Find Us sections.</div>
+          <button class="add-btn" data-i18n="btn_add_branch" onclick="addBranch()">+ Add Branch</button>
           <div id="ap-branches-body"></div>
         </div>
         <div class="ap" id="ap-hours">
-          <div class="ap-title">Opening Hours</div>
-          <div class="ap-sub">Set the hours shown in the Reservations section. Mark any day as Closed.</div>
+          <div class="ap-title" data-i18n="ap_hours_title">Opening Hours</div>
+          <div class="ap-sub" data-i18n="ap_hours_sub">Set the hours shown in the Reservations section. Mark any day as Closed.</div>
           <div id="ap-hours-body"></div>
         </div>
         <div class="ap" id="ap-contact">
-          <div class="ap-title">Contact Information</div>
-          <div class="ap-sub">Update phone numbers, email, and social media links.</div>
+          <div class="ap-title" data-i18n="ap_contact_title">Contact Information</div>
+          <div class="ap-sub" data-i18n="ap_contact_sub">Update phone numbers, email, and social media links.</div>
           <div id="ap-contact-body"></div>
         </div>
         <div class="ap" id="ap-hero">
-          <div class="ap-title">Hero Section Text</div>
-          <div class="ap-sub">Edit the main landing page copy. Use &lt;em&gt; tags for italic gold text.</div>
+          <div class="ap-title" data-i18n="ap_hero_title">Hero Section Text</div>
+          <div class="ap-sub" data-i18n="ap_hero_sub">Edit the main landing page copy. Use &lt;em&gt; tags for italic gold text.</div>
           <div id="ap-hero-body"></div>
         </div>
         <div class="ap" id="ap-images">
-          <div class="ap-title">Images</div>
-          <div class="ap-sub">Upload images from your device. Once uploaded, their key appears in the image dropdown for branches and menu items.</div>
+          <div class="ap-title" data-i18n="ap_images_title">Images</div>
+          <div class="ap-sub" data-i18n="ap_images_sub">Upload images from your device. Once uploaded, their key appears in the image dropdown for branches and menu items.</div>
           <div id="ap-images-body"></div>
         </div>
       </div>
