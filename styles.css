@@ -1030,33 +1030,79 @@ section {
   color: var(--muted)
 }
 
+.menu-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start
+}
+
+.menu-content {
+  flex: 1;
+  min-width: 0
+}
+
 .menu-subs {
   display: flex;
-  gap: 7px;
-  margin-bottom: 38px;
-  flex-wrap: wrap
+  flex-direction: column;
+  gap: 3px;
+  min-width: 165px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 90px;
+  padding-top: 4px
+}
+
+.menu-subs-label {
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 14px;
+  margin-bottom: 6px
 }
 
 .menu-sub-btn {
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-size: .75rem;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: .8rem;
   font-weight: 400;
-  letter-spacing: .04em;
-  transition: all .3s;
-  border: 1px solid var(--border);
-  color: var(--muted)
+  letter-spacing: .03em;
+  transition: all .22s;
+  border: 1px solid transparent;
+  color: var(--muted);
+  text-align: left;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  position: relative
+}
+
+.menu-sub-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity .2s
 }
 
 .menu-sub-btn:hover {
   color: var(--gold2);
-  border-color: var(--gold3)
+  border-color: var(--border)
 }
 
 .menu-sub-btn.active {
-  background: rgba(201, 169, 110, .12);
-  border-color: var(--gold);
+  background: rgba(201, 169, 110, .10);
+  border-color: var(--gold3);
   color: var(--gold)
+}
+
+.menu-sub-btn.active::before {
+  opacity: 1
 }
 
 .menu-sub-panel {
@@ -1068,6 +1114,33 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px
+}
+
+@media (max-width: 700px) {
+  .menu-layout {
+    flex-direction: column;
+    gap: 0
+  }
+  .menu-subs {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: unset;
+    position: static;
+    margin-bottom: 22px;
+    padding-top: 0
+  }
+  .menu-subs-label {
+    display: none
+  }
+  .menu-sub-btn {
+    width: auto;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border-color: var(--border)
+  }
+  .menu-sub-btn::before {
+    display: none
+  }
 }
 
 @keyframes fadeUp {
@@ -2227,4 +2300,191 @@ table.at tr:hover td {
   .gallery-grid {
     grid-template-columns: 1fr 1fr
   }
+}
+
+/* ── Language Toggle Button ─────────────────────────────────────── */
+.lang-btn {
+  background: transparent;
+  border: 1px solid var(--gold3);
+  color: var(--gold2);
+  padding: 5px 14px;
+  border-radius: 3px;
+  font-family: 'Cairo', 'Jost', sans-serif;
+  font-size: .78rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: .04em;
+  transition: all .22s;
+  white-space: nowrap
+}
+
+.lang-btn:hover {
+  background: rgba(201,169,110,.12);
+  border-color: var(--gold);
+  color: var(--gold)
+}
+
+/* ── Arabic / RTL Support ───────────────────────────────────────── */
+html[dir="rtl"] body {
+  font-family: 'Cairo', 'Jost', sans-serif
+}
+
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .section-tag,
+html[dir="rtl"] .section-sub,
+html[dir="rtl"] .hero-title,
+html[dir="rtl"] .hero-sub,
+html[dir="rtl"] .hero-tag {
+  font-family: 'Cairo', 'Playfair Display', serif
+}
+
+/* Arabic letter-spacing reset — Arabic is a cursive script;
+   positive letter-spacing breaks character connections */
+html[dir="rtl"] .hero-tag,
+html[dir="rtl"] .section-tag {
+  letter-spacing: 0;
+  text-transform: none
+}
+
+html[dir="rtl"] .nav-links a,
+html[dir="rtl"] .nav-cta,
+html[dir="rtl"] .mobile-menu a {
+  letter-spacing: 0;
+  text-transform: none
+}
+
+html[dir="rtl"] .btn-primary,
+html[dir="rtl"] .btn-outline {
+  letter-spacing: 0;
+  text-transform: none
+}
+
+html[dir="rtl"] .hero-content {
+  direction: ltr;
+  text-align: center
+}
+
+html[dir="rtl"] .hero-title {
+  line-height: 1.15;
+  font-size: clamp(2.4rem, 6vw, 5.5rem)
+}
+
+html[dir="rtl"] .hero-sub {
+  margin-left: auto;
+  margin-right: auto
+}
+
+html[dir="rtl"] .hero-btns {
+  justify-content: center
+}
+
+html[dir="rtl"] .hero-scroll {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%)
+}
+
+html[dir="rtl"] .hero-scroll span {
+  letter-spacing: 0;
+  text-transform: none
+}
+
+html[dir="rtl"] .hero-dots {
+  bottom: 110px
+}
+
+html[dir="rtl"] .about-badge {
+  left: auto;
+  right: -18px
+}
+
+html[dir="rtl"] .menu-sub-btn::before {
+  left: auto;
+  right: 0
+}
+
+html[dir="rtl"] .am-sidebar {
+  border-right: none;
+  border-left: 1px solid var(--border)
+}
+
+html[dir="rtl"] .form-err {
+  text-align: right
+}
+
+html[dir="rtl"] .testi-quote {
+  font-family: 'Cairo', sans-serif;
+  font-size: .9rem;
+  line-height: 1.8
+}
+
+html[dir="rtl"] .menu-card-name,
+html[dir="rtl"] .menu-card-desc {
+  font-family: 'Cairo', sans-serif
+}
+
+html[dir="rtl"] .nav-links {
+  flex-direction: row-reverse
+}
+
+html[dir="rtl"] .footer-inner {
+  flex-direction: row-reverse
+}
+
+html[dir="rtl"] .hours-row {
+  flex-direction: row-reverse
+}
+
+html[dir="rtl"] .branch-body {
+  text-align: right
+}
+
+html[dir="rtl"] .findus-loc {
+  text-align: right
+}
+
+html[dir="rtl"] .social-wrap {
+  text-align: right
+}
+
+html[dir="rtl"] .menu-subs-label {
+  text-align: right;
+  padding-right: 14px;
+  padding-left: 0
+}
+
+html[dir="rtl"] .form-label {
+  display: block;
+  text-align: right
+}
+
+html[dir="rtl"] .al-box {
+  text-align: right
+}
+
+html[dir="rtl"] .am-header {
+  flex-direction: row-reverse
+}
+
+html[dir="rtl"] .ap-title,
+html[dir="rtl"] .ap-sub {
+  text-align: right
+}
+
+html[dir="rtl"] .admin-stat-lbl,
+html[dir="rtl"] .admin-stat-num {
+  font-family: 'Cairo', sans-serif
+}
+
+html[dir="rtl"] .at th,
+html[dir="rtl"] .at td {
+  text-align: right
+}
+
+html[dir="rtl"] .booking-inner {
+  direction: rtl
+}
+
+html[dir="rtl"] .findus-contacts .contact-row {
+  flex-direction: row-reverse
 }
